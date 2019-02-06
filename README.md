@@ -1,2 +1,3 @@
 # LeetCode
-LeetCode练习
+
+[春节七天练](./NewYearExercise/README.md)
