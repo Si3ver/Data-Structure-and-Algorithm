@@ -6,11 +6,11 @@
 
 | 难度 | tag | 题目 | leetcode |
 | :--: | :--: | :--: | :--: |
-| 🤔🤔🤔 | 数组 | [三数求和](./Day01/t1_015_threeSum.js) | [015](https://leetcode-cn.com/problems/3sum/) |
-| 😁😁😁 | 数组 | [在数组中出现次数超过一半的数](./Day01/t2_169_majorityElement.js) | [169](https://leetcode-cn.com/problems/majority-element/) |
-| 🤯🤯🤯 | 数组 | [寻找缺失的最小正数](./Day01/t3_041_firstMissingPositive.js) | [041](https://leetcode-cn.com/problems/first-missing-positive/) |
-| 😁😁😁 | 链表 | [环形链表](./Day01/t4_141_hasCycle.js) | [141](https://leetcode-cn.com/problems/linked-list-cycle/) |
-| 🤔🤔🤔 | 链表 | [合并k个排序链表](./Day01/t5_023_mergeKLists.js) | [023](https://leetcode-cn.com/problems/merge-k-sorted-lists/) |
+| 🤔🤔🤔 | 数组 | [三数求和](./Day01/t1_015_threeSum.js) | [015](https://leetcode-cn.com/problems/3sum/) |
+| 😁😁😁 | 数组 | [在数组中出现次数超过一半的数](./Day01/t2_169_majorityElement.js) | [169](https://leetcode-cn.com/problems/majority-element/) |
+| 🤯🤯🤯 | 数组 | [寻找缺失的最小正数](./Day01/t3_041_firstMissingPositive.js) | [041](https://leetcode-cn.com/problems/first-missing-positive/) |
+| 😁😁😁 | 链表 | [环形链表](./Day01/t4_141_hasCycle.js) | [141](https://leetcode-cn.com/problems/linked-list-cycle/) |
+| 🤔🤔🤔 | 链表 | [合并k个排序链表](./Day01/t5_023_mergeKLists.js) | [023](https://leetcode-cn.com/problems/merge-k-sorted-lists/) |
 
 ## Day 2：栈、队列和递归
 
