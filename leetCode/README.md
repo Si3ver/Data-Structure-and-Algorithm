@@ -13,3 +13,4 @@
 | :--: | :--: | :--: | :--: |
 | 🤔🤔🤔 | Array | [电话号码的字母组合](./017_letterCombinations.js) | [017](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) |
 | 😁😁😁 | Array | [卡牌分组](./914_hasGroupsSizeX.js) | [914](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/) |
+| 😁😁😁 | Array | [种花问题](./605_canPlaceFlowers.js) | [605](https://leetcode-cn.com/problems/can-place-flowers/) |
