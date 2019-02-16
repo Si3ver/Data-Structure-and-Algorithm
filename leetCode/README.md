@@ -15,3 +15,14 @@
 | 😁😁😁 | Array | [卡牌分组](./914_hasGroupsSizeX.js) | [914](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/) |
 | 😁😁😁 | Array | [种花问题](./605_canPlaceFlowers.js) | [605](https://leetcode-cn.com/problems/can-place-flowers/) |
 | 🤔🤔🤔 | Array | [格雷编码](./089_grayCode.js) | [089](https://leetcode-cn.com/problems/gray-code/) |
+
+## 正则表达式
+
+| 难度 | tag | 题目 | leetcode |
+| :--: | :--: | :--: | :--: |
+| 😁😁😁 | RegExp | [重复的子字符串](./459_repeatedSubstringPattern.js) | [459](https://leetcode-cn.com/problems/repeated-substring-pattern/) |
+| 🤯🤯🤯 | RegExp | [正则表达式匹配🐛](./010_isMatch.js) | [010](https://leetcode-cn.com/problems/regular-expression-matching/) |
+
+## 排序
+
+ToDo
