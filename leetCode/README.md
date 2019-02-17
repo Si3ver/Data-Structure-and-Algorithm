@@ -31,4 +31,5 @@
 | :--: | :--: | :--: | :--: |
 | 😁😁😁 | sort | [按奇偶排序数组 II](./922_sortArrayByParityII.js) | [922](https://leetcode-cn.com/problems/sort-array-by-parity-ii/) |
 | 🤯🤯🤯 | sort | [最大间距](./164_maximumGap.js) | [164*](https://leetcode-cn.com/problems/maximum-gap/) |
-| 🤔🤔🤔 | sort | [数组中的第K个最大元素](./215_findKthLargest.js) | [215](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |
+| 🤔🤔🤔 | sort | [数组中的第K个最大元素](./215_findKthLargest.js) | [215*](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |
+| 🤯🤯🤯 | sort | [缺失的第一个正数](./041_firstMissingPositive.js) | [041](https://leetcode-cn.com/problems/first-missing-positive/) |
