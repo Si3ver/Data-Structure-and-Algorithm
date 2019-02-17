@@ -25,4 +25,8 @@
 
 ## 排序
 
-ToDo
+[冒泡排序、选择排序、插入排序、快速排序](./mysorts.js)
+
+| 难度 | tag | 题目 | leetcode |
+| :--: | :--: | :--: | :--: |
+| 😁😁😁 | sort | [按奇偶排序数组 II](./922_sortArrayByParityII.js) | [922](https://leetcode-cn.com/problems/sort-array-by-parity-ii/) |
