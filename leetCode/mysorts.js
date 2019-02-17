@@ -43,9 +43,9 @@ let insertSort = (arr) => {
 let partition = (arr, left, right) => {
     let pivot = arr[left]
     while (left < right) {
-        while (left < right && arr[right] > pivot) --right
+        while (left < right && arr[right] >= pivot) --right
         if (left < right) arr[left] = arr[right]
-        while (left < right && arr[left] < pivot) ++left
+        while (left < right && arr[left] <= pivot) ++left
         if (left < right) arr[right] = arr[left]
     }
     arr[left] = pivot
