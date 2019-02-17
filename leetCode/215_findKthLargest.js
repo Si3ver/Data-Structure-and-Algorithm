@@ -2,7 +2,7 @@
 // 解法1： 冒泡k次， O(nk)
 var findKthLargest1 = function(nums, k) {
     if (nums.length < k) return NaN;
-    for (let i = nums.length - 1; i > 0 && k >= 0; --i) {
+    for (let i = nums.length - 1, il = nums.length - k - 1; i >= il; --i) { // 冒泡k轮
         for (let j = 0; j < i; ++j) {
             if (nums[j] > nums[j+1]) {
                 let tmp = nums[j]
@@ -14,7 +14,7 @@ var findKthLargest1 = function(nums, k) {
     return nums[nums.length - k]
 };
 
-// 解法2： partition法。 O(nlogk)
+// 解法2： partition法。 O(nlogn)
 // 每次while子循环找到第len - pivotIdx大的数。
 var findKthLargest2 = function(nums, k) {
     // 特殊情况
