@@ -30,3 +30,4 @@
 | 难度 | tag | 题目 | leetcode |
 | :--: | :--: | :--: | :--: |
 | 😁😁😁 | sort | [按奇偶排序数组 II](./922_sortArrayByParityII.js) | [922](https://leetcode-cn.com/problems/sort-array-by-parity-ii/) |
+| 🤯🤯🤯 | sort | [最大间距](./164_maximumGap.js) | [164*](https://leetcode-cn.com/problems/maximum-gap/) |
