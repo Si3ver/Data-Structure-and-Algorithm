@@ -33,3 +33,9 @@
 | 🤯🤯🤯 | sort | [最大间距](./164_maximumGap.js) | [164*](https://leetcode-cn.com/problems/maximum-gap/) |
 | 🤔🤔🤔 | sort | [数组中的第K个最大元素](./215_findKthLargest.js) | [215*](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |
 | 🤯🤯🤯 | sort | [缺失的第一个正数](./041_firstMissingPositive.js) | [041](https://leetcode-cn.com/problems/first-missing-positive/) |
+
+## 递归
+
+| 难度 | tag | 题目 | leetcode |
+| :--: | :--: | :--: | :--: |
+| 🤔🤔🤔 | recursion | [复原IP地址](./093_restoreIpAddresses.js) | [093](https://leetcode-cn.com/problems/restore-ip-addresses/) |
