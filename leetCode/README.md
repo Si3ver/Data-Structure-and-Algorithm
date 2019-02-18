@@ -39,3 +39,4 @@
 | 难度 | tag | 题目 | leetcode |
 | :--: | :--: | :--: | :--: |
 | 🤔🤔🤔 | recursion | [复原IP地址](./093_restoreIpAddresses.js) | [093](https://leetcode-cn.com/problems/restore-ip-addresses/) |
+| 🤯🤯🤯 | recursion | [串联所有单词的子串](./030_findSubstring.js) | [030](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/) |
