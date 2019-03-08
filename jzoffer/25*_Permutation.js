@@ -1,7 +1,8 @@
+// 交换法
 function Permutation(str)
 {
     if (!str.length) return []
-    let arr = str.split(''), res = []
+    let res = [], arr = str.split('').sort()
     let help = (arr, idx) => {
         if (idx > arr.length - 1) {
             res.push(arr.join(''))
@@ -11,9 +12,8 @@ function Permutation(str)
                 arr[i] = arr[idx]
                 arr[idx] = tmp
                 help(arr, idx+1)
-                tmp = arr[i]
-                arr[i] = arr[idx]
-                arr[idx] = tmp
+                arr[idx] = arr[i]
+                arr[i] = tmp
             }
         }
     }
