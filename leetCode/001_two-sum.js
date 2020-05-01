@@ -1,3 +1,4 @@
+// 数组 哈希表
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -12,6 +13,7 @@ var twoSum_bad = function(nums, target) {
       }
     }
   }
+  return []
 };
 
 // O(N)
