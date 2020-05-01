@@ -6,6 +6,7 @@
 
 + 05 | 理论讲解：数组&链表
 + 06 | 面试题：反转一个单链表&判断链表是否有环
+  - [反转链表](../leetCode/206_reverse-linked-list.js) | [206](https://leetcode-cn.com/problems/reverse-linked-list/)
 + 07 | 理论讲解：堆栈&队列
 + 08 | 面试题：判断括号字符串是否有效
 + 09 | 面试题：用队列实现栈&用栈实现
