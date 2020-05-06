@@ -8,6 +8,7 @@
 + 06 | 面试题：反转一个单链表&判断链表是否有环
   - [反转链表](../leetCode/206_reverse-linked-list.js) | [206](https://leetcode-cn.com/problems/reverse-linked-list/)
   - [两两交换链表中的节点](../leetCode/024_swap-nodes-in-pairs.js) | [024](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+  - [K个一组翻转链表](../leetCode/025_reverse-nodes-in-k-group.js) | [025](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
   - [判断链表是否有环](../leetCode/141_linked-list-cycle.js) | [141](https://leetcode-cn.com/problems/linked-list-cycle/)
   - [环形链表](../leetCode/142_linked-list-cycle-ii.js) | [142](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 + 07 | 理论讲解：堆栈&队列
