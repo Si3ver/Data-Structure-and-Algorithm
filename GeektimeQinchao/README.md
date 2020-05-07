@@ -13,10 +13,14 @@
   - [环形链表](../leetCode/142_linked-list-cycle-ii.js) | [142](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 + 07 | 理论讲解：堆栈&队列
 + 08 | 面试题：判断括号字符串是否有效
+  - [有效的括号](../leetCode/020_valid-parentheses.js) | [020](https://leetcode-cn.com/problems/valid-parentheses/) 
 + 09 | 面试题：用队列实现栈&用栈实现
+  - [用队列实现栈](../leetCode/225_implement-queue-using-stacks.js) | [225](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 + 10 | 理论讲解：优先队列
 + 11 | 面试题：返回数据流中的第K大元素
+  - []()
 + 12 | 面试题：返回滑动窗口中的最大值
+  - []()
 + 13 | 理论讲解：哈希表
 + 14 | 面试题：有效的字母异位词
 + 15 | 面试题：两数之和
