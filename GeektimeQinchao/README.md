@@ -18,7 +18,7 @@
   - [用队列实现栈](../leetCode/225_implement-queue-using-stacks.js) | [225](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 + 10 | 理论讲解：优先队列
 + 11 | 面试题：返回数据流中的第K大元素
-  - []()
+  - [数据流中的第K大元素](../leetCode/703_kth-largest-element-in-a-stream.js) | [703](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)
 + 12 | 面试题：返回滑动窗口中的最大值
   - []()
 + 13 | 理论讲解：哈希表
