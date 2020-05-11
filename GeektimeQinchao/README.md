@@ -23,8 +23,11 @@
   - [滑动窗口最大值](../leetCode/239_sliding-window-maximum.js) | [239](https://leetcode-cn.com/problems/sliding-window-maximum/)
 + 13 | 理论讲解：哈希表
 + 14 | 面试题：有效的字母异位词
+  - [有效的字母异位词](../leetCode/242_valid-anagram.js) | [239](https://leetcode-cn.com/problems/valid-anagram/)
 + 15 | 面试题：两数之和
+  - [两数之和](../leetCode/001_two-sum.js) | [001](https://leetcode-cn.com/problems/two-sum/)
 + 16 | 面试题：三数之和
+  - [三数之和](../leetCode/015_3sum.js) | [015](https://leetcode-cn.com/problems/3sum/)
 + 17 | 理论讲解：树&二叉树&二叉搜索树
 + 18 | 面试题：验证二叉搜索树
 + 19 | 面试题：二叉树&二叉搜索树的最近公共祖先
