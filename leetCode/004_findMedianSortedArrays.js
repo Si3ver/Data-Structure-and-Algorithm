@@ -18,6 +18,8 @@ var findMedianSortedArrays = function (arr1, arr2) {
   while (lo <= hi) {
     const i = (lo + hi) >> 1;
     const j = ((m + n + 1) >> 1) - i;
+    // const j = (m + n - lo - hi + 1) >> 1;
+    // const j = ((m + n + 1) >> 1) - i // ((lo + hi) >> 1);
 
     const L1 = i === 0 ? -Infinity : arr1[i - 1];
     const R1 = i === m ? Infinity : arr1[i];
@@ -47,4 +49,4 @@ console.log(
 ); // 9
 console.log(
   findMedianSortedArrays([1, 7, 8, 15, 20], [2, 5, 6, 11, 12, 14, 17])
-); // 5.5
+); // 9.5
