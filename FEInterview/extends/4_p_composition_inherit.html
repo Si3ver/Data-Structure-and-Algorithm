@@ -1,0 +1,38 @@
+<script>
+  function Parent() {
+    this.sayHello = function() {
+      console.log('Hello');
+    }
+  }
+  Parent.prototype.a = '父类 prototype 上的属性a';
+
+  function Child() {
+    // 方案四：寄生组合继承（三行代码）
+    Parent.call(this);
+  }
+
+
+  Child.prototype = Object.create(Parent.prototype);
+  // 修复 constructor
+  Child.prototype.constructor = Child;
+
+
+  //* 要注意位置：如果在 Object.create 之前赋值，会被覆盖
+  Child.prototype.sayHi = function() {
+    console.log(`hi, ${this.name}`);
+  }
+
+  // 测试用例
+  const child1 = new Child();
+  const child2 = new Child();
+  console.log(child1.sayHello === child2.sayHello); // false
+  console.log(child1.sayHello()); // Hello
+  console.log(child1.a); // 父类 prototype 上的属性a
+  child1.sayHi()
+
+  /*
+  特点：this 上的是自己私有的，prototype 上的是公共的（实例间共享）
+
+  缺点：在使用 Object.create 前，在 Child.prototype 添加的属性会丢失
+   */
+  </script>

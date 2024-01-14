@@ -1,0 +1,23 @@
+<script>
+function Parent() {
+  this.sayHello = function() {
+    console.log('Hello');
+  }
+}
+Parent.prototype.a = '父类 prototype 上的属性a';
+
+function Child() {
+  // 方案二：构造函数继承（一行代码）
+  Parent.call(this);
+}
+
+const child1 = new Child();
+const child2 = new Child();
+console.log(child1.sayHello === child2.sayHello); // false
+console.log(child1.sayHello()); // Hello
+console.log(child1.a); // undefined
+
+/*
+特点：this 上的会继承，prototype 上的不会继承（缺点）
+ */
+</script>

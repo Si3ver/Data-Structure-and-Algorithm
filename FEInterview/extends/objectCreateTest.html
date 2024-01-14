@@ -1,0 +1,14 @@
+<script>
+  var o1 = {
+    name: 'o1',
+    sayHello: function() {
+      console.log(`Hello, ${this.name}`);
+    }
+  }
+
+  var o2 = Object.create(o1);
+  console.log(o2.__proto__ === o1); // true
+  o2.sayHello(); // Hello, o1
+  o2.name = 'o2'; // Hello, o2
+  o2.sayHello();
+</script>

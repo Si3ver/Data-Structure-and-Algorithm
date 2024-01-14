@@ -1,0 +1,36 @@
+<script>
+function Parent () {
+  this.name = "parent";
+  this.arr = [1, 2, 3];
+}
+
+Parent.prototype.getName = function () {
+  return this.name;
+}
+
+function Child() {
+  this.name = 'child';
+}
+// 方案一：原型继承(一行代码)
+Child.prototype = new Parent();
+
+// 测试用例
+const child1 = new Child;
+const child2 = new Child;
+console.log(child1.getName()); // 'child'
+
+// 互相污染
+console.log(
+  child1.__proto__ === child2.__proto__,
+  child1.__proto__ === Child.prototype,
+  child1.__proto__.__proto__ === Parent.prototype,
+  child1.__proto__.__proto__.__proto__ === Object.prototype,
+  child1.__proto__.__proto__.__proto__.__proto__ === null,
+);
+child1.arr.push(4);
+console.log(child2.arr);
+
+/*
+  !! 缺点：链上的属性、方法被所有实例共享，容易互相污染。
+*/
+</script>

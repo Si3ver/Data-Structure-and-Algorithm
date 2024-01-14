@@ -1,0 +1,34 @@
+<script>
+  class Parent {
+    constructor() {
+      this.name = 'parent',
+      this.sayHello = function() {
+        console.log(`Hello, ${this.name}`);
+      }
+    }
+
+    sayHi() {
+      console.log(`Hi, ${this.name}`);
+    }
+  }
+
+  class Child extends Parent {
+    constructor() {
+      super();
+      this.name = 'child'
+    }
+  }
+
+  // 测试用例
+  const child1 = new Child();
+  const child2 = new Child();
+  console.log(child1.sayHello === child2.sayHello); // false
+  console.log(child1.__proto__.constructor.prototype === child1.__proto__) // true
+
+  child1.sayHello() // Hello, child
+  child1.sayHi() // Hi, child
+
+  /*
+
+   */
+  </script>
