@@ -3,8 +3,8 @@ import { _tree } from './tree.js';
  * https://leetcode.cn/problems/path-sum-iii/description
  * 路径总和III
  *
- * 思路：路径 = 前缀和之差
- * map<k, v>: k 存前缀和，v 存“节点数量”
+ * 思路：路径 = 前缀和之差。 dfs 的过程中用 map 存前缀和，dfs 遍历过程中去匹配是否满足条件
+ * map<k, v>: k 存前缀和，v 存“这个前缀和的节点数量”
  *
  * tree:
  *         10
@@ -28,13 +28,13 @@ import { _tree } from './tree.js';
 var pathSum = function(root, targetSum) {
   // 计算前缀和，存储到 map
   const dfs = (root, preSum) => {
-    console.log('dfs:', root ? root.val : null, preSum, map, res);
+    // console.log('dfs:', root ? root.val : null, preSum, map, res);
     // terminator
     if (!root) return 0;
 
     // process
     map.set(preSum, (map.get(preSum) || 0) + 1);
-    let target = preSum + root.val;
+    const target = preSum + root.val; // 新的前缀和
     res += map.get(target - targetSum) || 0;
 
     // drill down
