@@ -8,7 +8,7 @@ Parent.prototype.a = '父类 prototype 上的属性a';
 
 function Child() {
   // 方案二：构造函数继承（一行代码）
-  Parent.call(this);
+  Parent.call(this); // #1
 }
 
 const child1 = new Child();

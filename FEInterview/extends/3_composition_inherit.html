@@ -8,9 +8,9 @@
 
   function Child() {
     // 方案三：组合继承（两行代码） = 原型继承 + 构造函数继承
-    Parent.call(this);
+    Parent.call(this); // #1
   }
-  Child.prototype = new Parent();
+  Child.prototype = new Parent(); // #2
 
   const child1 = new Child();
   const child2 = new Child();

@@ -8,14 +8,11 @@
 
   function Child() {
     // 方案四：寄生组合继承（三行代码）
-    Parent.call(this);
+    Parent.call(this); // #1
   }
-
-
-  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype = Object.create(Parent.prototype); // #2
   // 修复 constructor
-  Child.prototype.constructor = Child;
-
+  Child.prototype.constructor = Child; // #3
 
   //* 要注意位置：如果在 Object.create 之前赋值，会被覆盖
   Child.prototype.sayHi = function() {

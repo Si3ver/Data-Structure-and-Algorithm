@@ -12,7 +12,7 @@ function Child() {
   this.name = 'child';
 }
 // 方案一：原型继承(一行代码)
-Child.prototype = new Parent();
+Child.prototype = new Parent(); // #1
 
 // 测试用例
 const child1 = new Child;
