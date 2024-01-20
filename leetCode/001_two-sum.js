@@ -17,16 +17,15 @@ var twoSum_bad = function(nums, target) {
 };
 
 // O(N)
-var twoSum = function (nums, target) {
-  var hashmap = new Map()
-  for (var i = 0; i < nums.length; ++i) {
-    var cur = nums[i], gap = target - cur
-    if (hashmap.get(cur) !== void (0)) {
-      return [hashmap.get(cur), i]
+var twoSum = function(nums, target) {
+  const map = new Map();
+  for (let i = 0; i < nums.length; ++i) {
+    if (map.has(nums[i])) {
+      return [map.get(nums[i]), i];
     }
-    hashmap.set(gap, i)
+    map.set(target - nums[i], i);
   }
-  return []
+  return [];
 };
 
 // test case
