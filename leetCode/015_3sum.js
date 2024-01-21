@@ -1,27 +1,30 @@
 /**
+ * https://leetcode.cn/problems/3sum/
  * @param {number[]} nums
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-  let res = [], len = nums.length
-  nums.sort((a, b) => a - b)
-  if (nums[0] > 0 || nums[len - 1] < 0) return res
-  for (let i = 0; i < len - 2 && nums[i] <= 0; ++i) {
-    if (i !== 0 && nums[i] === nums[i - 1]) continue    // 连续两个相等元素，即重复情况，直接跳过
-    let l = i + 1, r = len - 1, target = -1 * nums[i]
-    while(l < r) {
-      if (nums[l] + nums[r] === target) {
-        res.push([nums[i], nums[l++], nums[r--]])
-        while(l < r && nums[l] === nums[l - 1]) ++l       // l - 1 的元素已经放进结果里了, 这里去重
-        while(l < r && nums[r] === nums[r + 1]) --r
-      } else if (nums[l] + nums[r] < target) {
-        ++l
+  const n = nums.length;
+  if (n < 3) return;
+  nums.sort((x, y) => x - y);
+  const res = [];
+  for (let k = 0; k < n - 2 && nums[k] <= 0; ++k) {
+    if (k > 0 && nums[k] === nums[k - 1]) continue;
+    let lo = k + 1, hi = n - 1;
+    while (lo < hi) {
+      const sum = nums[k] + nums[lo] + nums[hi];
+      if (sum === 0) {
+        res.push([nums[k], nums[lo], nums[hi]]);
+        while (lo < hi && nums[lo] === nums[++lo]) {};
+        while (lo < hi && nums[hi] === nums[--hi]) {};
+      } else if (sum < 0) {
+        while (lo < hi && nums[lo] === nums[++lo]) {};
       } else {
-        --r
+        while (lo < hi && nums[hi] === nums[--hi]) {};
       }
     }
   }
-  return res
+  return res;
 };
 
 
