@@ -4,6 +4,7 @@
  * medium
  */
 
+// O(n)? O(n) 有些极端用例会比较慢
 var longestConsecutive = function(arr) {
   const set = new Set(arr);
   let maxCount = 0;
@@ -16,6 +17,23 @@ var longestConsecutive = function(arr) {
         ++count;
       }
       maxCount = Math.max(maxCount, count);
+    }
+  }
+  return maxCount;
+}
+
+// 解法2 O(nlogn) O(1) <- 反而比较快
+var longestConsecutive2 = function(arr) {
+  if (!arr.length) return 0;
+  arr.sort((x, y) => x - y);
+  let count = 1, maxCount = 1;
+  for (let i = 1; i < arr.length; ++i) {
+    if (arr[i] === arr[i - 1]) {
+      continue;
+    } else if (arr[i] === arr[i - 1] + 1) {
+      maxCount = Math.max(maxCount, ++count);
+    } else {
+      count = 1;
     }
   }
   return maxCount;

@@ -7,15 +7,14 @@
  */
 
 var lengthOfLongestSubstring = function(s) {
-  const map = new Map();
-
-  let maxLen = 0;
-  let start = 0;
+  const m = new Map();
+  let maxLen = 0, start = 0;
   for (let i = 0; i < s.length; ++i) {
-    if (map.has(s[i]) && map.get(s[i]) >= start) {
-      start = map.get(s[i]) + 1; // ! 新起点：记录处（重复处）的下一个
+    const ch = s[i];
+    if (m.has(ch) && start <= m.get(ch)) {
+      start = m.get(ch) + 1;
     }
-    map.set(s[i], i);
+    m.set(ch, i);
     maxLen = Math.max(maxLen, i - start + 1);
   }
   return maxLen;

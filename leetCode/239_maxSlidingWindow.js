@@ -4,13 +4,13 @@
  * hard
  */
 
-var maxSlidingWindow = function (arr, k) {
-  const res = [], wind = [];
+var maxSlidingWindow = function(arr, k) {
+  const wind = [], res = [];
   for (let i = 0; i < arr.length; ++i) {
-    if (wind.length > 0 && i - wind[0] >= k) { // delete queue left item
+    if (wind.length && i - wind[0] >= k) { // delete queue left item
       wind.shift();
     }
-    while (wind.length > 0 && arr[i] >= arr[wind[wind.length - 1]]) { // delete queue right little old items
+    while (wind.length && arr[i] >= arr[wind[wind.length - 1]]) { // delete queue right little old items
       wind.pop();
     }
     wind.push(i);
