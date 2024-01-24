@@ -4,11 +4,11 @@
  * medium
  */
 
-var rotate = function (nums, k) {
-  const n = nums.length;
+var rotate = function(arr, k) {
+  const n = arr.length;
   k = k % n;
-  nums.splice(0, 0, ...nums.splice(-k));
-}
+  arr.splice(0, 0, ...arr.splice(n - k, k))
+};
 
 // ---
 var arr = [1, 2, 3, 4, 5, 6, 7]
