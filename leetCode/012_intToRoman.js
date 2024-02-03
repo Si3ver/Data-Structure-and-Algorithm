@@ -24,18 +24,15 @@ var intToRoman = function(num) {
     [4, 'IV'],
     [1, 'I'],
   ]);
-  // console.log(map.entries());
-  const roman = [];
+  const resArr = [];
   for (const [value, symbol] of map.entries()) {
-    while (num >= value) {
+    while (value >= num) {
       num -= value;
-      roman.push(symbol);
+      resArr.push(symbol);
     }
-    if (num === 0) {
-      break;
-    }
+    if (num === 0) break;
   }
-  return roman.join('');
+  return resArr.join('');
 };
 
 // ----
