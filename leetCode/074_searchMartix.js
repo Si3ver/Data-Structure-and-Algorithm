@@ -1,5 +1,5 @@
 /**
- * https://leetcode.cn/problems/search-a-2d-matrix/description
+ * https://leetcode.cn/problems/search-a-2d-matrix
  * 搜索二维矩阵
  *
  * 考点：二分查找
@@ -8,6 +8,8 @@
  *  0   1  3  5  7
  *  1  10 11 16 20
  *  2  23 30 34 60
+ *
+ * 思路：严格递增，可以看成一维数组 O(log(m + n))
  */
 
 var searchMatrix = function(A, target) {
@@ -34,5 +36,16 @@ var searchMatrix = function(A, target) {
 }
 
 // ---- test case ----
-console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 3));  // true
-console.log(searchMatrix([[1,3,5,7],[10,11,16,20],[23,30,34,60]], 13)); // false
+console.log(searchMatrix(
+  [
+    [ 1, 3, 5, 7],
+    [10,11,16,20],
+    [23,30,34,60],
+  ], 3));  // true
+
+console.log(searchMatrix(
+  [
+    [ 1, 3, 5, 7],
+    [10,11,16,20],
+    [23,30,34,60]
+  ], 13)); // false
