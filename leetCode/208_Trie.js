@@ -1,8 +1,15 @@
 /**
- * https://leetcode.cn/problems/implement-trie-prefix-tree/description
+ * https://leetcode.cn/problems/implement-trie-prefix-tree
  *
  * 实现 Trie 树
  *
+ * apple
+ *        root
+ *          a
+ *          p
+ *          p
+ *          l
+ *          e, isWord: true
  */
 
 class Trie {
@@ -44,7 +51,7 @@ class Trie {
 // ---- test case ----
 var trie = new Trie()
 trie.insert("apple")
-// console.log(JSON.stringify(trie));
+console.log(JSON.stringify(trie));
 console.log(trie.search("bbb"))
 console.log(trie.search("apple"))   // 返回 true
 console.log(trie.search("app"))     // 返回 false

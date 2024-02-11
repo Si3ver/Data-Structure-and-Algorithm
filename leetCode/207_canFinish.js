@@ -35,7 +35,7 @@ var canFinish = function (numCourses, prerequisites) {
     }
   }
   return count === numCourses;
-}
+};
 
 // ----
 console.log(canFinish(2, [[1, 0]]));
