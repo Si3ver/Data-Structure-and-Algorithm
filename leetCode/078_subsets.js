@@ -4,24 +4,21 @@
  * medium
  */
 
-var subsets = function (arr) {
-  const dfs = (level, path) => {
+var subsets = function(arr) {
+  const dfs = (index, path) => {
     // terminator
-    if (level === arr.length) {
+    if (index === arr.length) {
       res.push(path.slice());
       return;
     }
-    // process && dirll down (pick or not pick arr[level])
-    dfs(level + 1, path);
-    path.push(arr[level]);
-    dfs(level + 1, path);
-    // revert status
-    path.pop();
+    // drilldown
+    dfs(index + 1, path); // 选
+    dfs(index + 1, [...path, arr[index]]); // 不选
   }
   const res = [];
   dfs(0, []);
   return res;
-}
+};
 
 // ----
 console.log(subsets([1, 2, 3]));

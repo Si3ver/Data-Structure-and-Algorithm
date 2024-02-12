@@ -56,6 +56,29 @@ var letterCombinations = function (digits) {
   return res;
 }
 
+// 优化下写法
+var letterCombinations = function(digits) {
+  if (!digits.length) return [];
+  const dfs = (index, path) => {
+    if (index === digits.length) {
+      res.push(path.join(''));
+      return;
+    }
+    const chs = map.get(digits[index]);
+    for (const ch of chs) {
+      dfs(index + 1, [...path, ch]);
+    }
+  }
+  const map = new Map([
+    ['2',  'abc'], ['3', 'def'],
+    ['4',  'ghi'], ['5', 'jkl'], ['6',  'mno'],
+    ['7', 'pqrs'], ['8', 'tuv'], ['9', 'wxyz'],
+  ]);
+  const res = [];
+  dfs(0, []);
+  return res;
+};
+
 // --- test ---
 console.log(letterCombinations("234"));
 console.log(letterCombinations("9"));

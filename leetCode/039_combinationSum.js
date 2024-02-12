@@ -27,6 +27,23 @@ var combinationSum = function (candidates, target) {
   return res;
 };
 
+var combinationSum = function(candidates, target) {
+  const dfs = (index, path, target) => {
+    if (index === candidates.length) return;
+    if (target === 0) {
+      res.push(path);
+      return;
+    }
+    dfs(index + 1, path, target);
+    if (target >= candidates[index]) {
+      dfs(index, [...path, candidates[index]], target - candidates[index]);
+    }
+  }
+  const res = [];
+  dfs(0, [], target);
+  return res;
+};
+
 // ---- test case ----
 console.log(combinationSum([2, 3, 6, 7], 7)); // [[2, 2, 3], [7]]
 console.log(combinationSum([2,3,5], 8)); // [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
