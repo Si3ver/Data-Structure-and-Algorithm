@@ -31,6 +31,31 @@ var exist = function(A, word) {
   return false;
 };
 
+var exist = function (A, word) {
+
+  const dfs = (index, row, col) => {
+    if (index === word.length) return true;
+    if (row < 0 || row >= m || col < 0 || col >= n) return false;
+    if (used[row][col] || A[row][col] !== word[index]) return false;
+    used[row][col] = true;
+    const isFind = dfs(index + 1, row + 1, col) || dfs(index + 1, row - 1, col) || dfs(index + 1, row, col + 1) || dfs(index + 1, row, col - 1);
+    if (isFind) return true;
+    used[row][col] = false;
+    return false;
+  }
+
+  const m = A.length, n = A[0].length;
+  const used = Array(m).fill().map(_ => Array(n).fill(false));
+  for (let i = 0; i < m; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (A[i][j] === word[0] && dfs(0, i, j)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 // ---- test case ----
 console.log(exist([["A","B","C","E"],
                    ["S","F","C","S"],

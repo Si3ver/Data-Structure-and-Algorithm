@@ -36,7 +36,7 @@ var combinationSum = function(candidates, target) {
     }
     dfs(index + 1, path, target);
     if (target >= candidates[index]) {
-      dfs(index, [...path, candidates[index]], target - candidates[index]);
+      dfs(index, [...path, candidates[index]], target - candidates[index]); // 可以重复选，index不变
     }
   }
   const res = [];
