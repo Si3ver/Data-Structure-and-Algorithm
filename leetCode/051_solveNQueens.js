@@ -1,21 +1,55 @@
 /**
  * https://leetcode.cn/problems/n-queens
  * N皇后
+ *
+ * 思路：位运算 + 回溯
  */
 
-// 方案一：位运算
-function buildResult(res, n) {
-  const graphs = [];
-  res.forEach(state => {
-    const graph = [];
-    state.forEach(bit => {
-      const lineStr = bit.toString(2).padStart(n, '.');
-      graph.push(lineStr.replaceAll('0', '.').replaceAll('1', 'Q'));
-    })
-    graphs.push(graph);
-  });
-  return graphs;
-}
+/* eg: res = [
+              [4, 1, 8, 2],
+              [2, 8, 1, 4],
+            ]
+       graphs = [
+         [
+            '.Q..',
+            '...Q',
+            'Q...',
+            '..Q.',
+         ],
+         [
+           '..Q.',
+           'Q...',
+           '...Q',
+           '.Q..',
+         ],
+       ]
+*/
+// function buildResult(res, n) {
+//   const graphs = [];
+//   res.forEach(state => {
+//     const graph = [];
+//     state.forEach(bit => {
+//       const lineStr = bit.toString(2).padStart(n, '.');
+//       graph.push(lineStr.replaceAll('0', '.').replaceAll('1', 'Q'));
+//     })
+//     graphs.push(graph);
+//   });
+//   return graphs;
+// }
+
+var buildResult = (res, n) =>
+  res.map(
+    arr => arr.map(
+      num => num.toString(2).padStart(n, '.')
+             .replaceAll('0', '.')
+             .replaceAll('1', 'Q')
+    )
+  );
+
+console.log([
+  [4, 1, 8, 2],
+  [2, 8, 1, 4],
+], 4);
 
 var solveNQueens = function (n) {
   if (n < 1) return [];
