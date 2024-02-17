@@ -3,27 +3,26 @@
  * 划分字母区间
  * medium
  *
- * 思路：map 存储字符最后出现的下标，
+ * 思路：map 存储字符最后出现的下标。第二轮遍历，计算 maxLastPos 即为分割点。
  */
 
-var partitionLabels = function (S) {
+var partitionLabels = function(s) {
   const lastPosMap = new Map();
-  for (let i = 0; i < S.length; ++i) {
-    lastPosMap.set(S[i], i);
+  for (let i = 0; i < s.length; ++i) {
+    lastPosMap.set(s[i], i);
   }
-  console.log(lastPosMap);
   const res = [];
-  let start = 0, max = 0;
-  for (let i = 0; i < S.length; ++i) {
-    const currentLastPos = lastPosMap.get(S[i]);
-    max = Math.max(max, currentLastPos);
-    if (i === max) {
+  let maxLastPos = 0, start = 0;
+  for (let i = 0; i < s.length; ++i) {
+    const lastPos = lastPosMap.get(s[i]);
+    maxLastPos = Math.max(maxLastPos, lastPos);
+    if (i === maxLastPos) {
       res.push(i - start + 1);
       start = i + 1;
     }
   }
   return res;
-}
+};
 
 // ----
 console.log(partitionLabels('ababcbacadefegdehijhklij')); // [9, 7, 8]
