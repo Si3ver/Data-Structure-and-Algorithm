@@ -2,6 +2,8 @@
  * https://leetcode.cn/problems/decode-string
  * 解码字符串
  * medium
+ *
+ * 思路：辅助栈存 multi 和 res，便于 restore
  */
 
 var decodeString = function(s) {
