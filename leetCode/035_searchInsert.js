@@ -6,7 +6,7 @@
  */
 
 var searchInsert = function(nums, target) {
-  let lo = 0, hi = nums.length;
+  let lo = 0, hi = nums.length - 1;
   while (lo <= hi) {
     const mid = lo + ((hi - lo) >> 1);
     if (nums[mid] < target) {

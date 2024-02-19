@@ -16,7 +16,8 @@ var wordBreak = function(s, wordDict) {
   for (let i = 1; i <= n; ++i) {
     for (let j = i - 1; j >= 0; --j) {
       const suffix = s.slice(j, i); // 前缀 0:j-1  后缀 j: i-1
-      if (wordSet.has(suffix) && dp[j]) {
+      // console.log(i, j, suffix);
+      if (wordSet.has(suffix) && dp[j]) { // 后缀满足 + 前缀满足
         dp[i] = true;
         break;
       }
@@ -28,5 +29,5 @@ var wordBreak = function(s, wordDict) {
 
 // ---- test case ----
 console.log(wordBreak('leetcode', ["leet", "code"]));
-console.log(wordBreak('applepenapple', ["apple", "pen"]));
-console.log(wordBreak('catsandog', ["cats", "dog", "sand", "and", "cat"]));
+// console.log(wordBreak('applepenapple', ["apple", "pen"]));
+// console.log(wordBreak('catsandog', ["cats", "dog", "sand", "and", "cat"]));

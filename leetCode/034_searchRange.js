@@ -2,6 +2,8 @@
  * https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array
  * 在排序数组中查找元素的第一个和最后一个位置
  *
+ * 思路：二分查找 + 左右寻找重复元素
+ *
  */
 
 var searchRange = function (nums, target) {
@@ -11,7 +13,7 @@ var searchRange = function (nums, target) {
     const mid = lo + ((hi - lo) >> 1);
     if (target === nums[mid]) {
       targetIdx = mid;
-      break;
+      break; // 找到后记得写 break，否则可能死循环
     } else if (target < nums[mid]) {
       hi = mid - 1;
     } else {
@@ -22,7 +24,7 @@ var searchRange = function (nums, target) {
   if (targetIdx === -Infinity) return [-1, -1];
 
   // spread
-  let start = end = targetIdx;
+  let start = targetIdx, end = targetIdx;
   while (start > 0 && nums[start - 1] === target) --start;
   while (end < n - 1 && nums[end + 1] === target) ++end;
   return [start, end];
