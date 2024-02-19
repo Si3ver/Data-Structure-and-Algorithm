@@ -10,12 +10,12 @@
 var findMin = function(arr) {
   const n = arr.length;
   let lo = 0, hi = n - 1;
-  while (lo < hi) {
-    if (arr[lo] < arr[hi]) return arr[lo];
+  while (lo < hi) { // 小于
+    if (arr[lo] < arr[hi]) return arr[lo]; // 已经正序了，左边最小
     const mid = lo + ((hi - lo) >> 1);
-    if (arr[lo] <= arr[mid]) { // 逆序对在右边
+    if (arr[lo] <= arr[mid]) { // 逆序对在右边：mid + 1 ~ hi
       lo = mid + 1;
-    } else {
+    } else { // 逆序对范围：lo ~ mid
       hi = mid;
     }
   }

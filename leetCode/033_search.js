@@ -2,6 +2,8 @@
  * https://leetcode.cn/problems/search-in-rotated-sorted-array/description
  *
  * 搜索旋转排序数组
+ *
+ * 思路：二分 + 判断逆序对在哪边
  */
 
 var search = function(arr, target) {
