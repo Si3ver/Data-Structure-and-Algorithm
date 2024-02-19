@@ -15,14 +15,14 @@
 var minPathSum = function(A) {
   const m = A.length, n = A[0].length;
   const dp = A[0].slice();
-  for (let i = 1; i < n; ++i) {
-    dp[i] += dp[i - 1];
+  for (let j = 1; j < n; ++j) {
+    dp[j] += dp[j - 1];
   }
 
   for (let i = 1; i < m; ++i) {
     dp[0] += A[i][0];
     for (let j = 1; j < n; ++j) {
-      dp[j] = Math.min(dp[j], dp[j - 1]) + A[i][j];
+      dp[j] = A[i][j] + Math.min(dp[j], dp[j - 1]);
     }
   }
   return dp[n - 1];

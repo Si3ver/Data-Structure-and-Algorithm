@@ -4,7 +4,8 @@
  *
  */
 
-// 方案一：中心扩散法 O(n^2) 👈 选这个就好
+// 方案一：中心扩散法 O(n^2) 👈 选这个就好 a i b / a i i+1 b
+// 思路：遍历，以 i 为中心点扩散
 var longestPalindrome1 = function(s) {
   const n = s.length;
   if (n < 1) return '';
