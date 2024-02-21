@@ -1,7 +1,7 @@
 /**
  * https://leetcode.cn/problems/longest-increasing-subsequence
  * 最长递增子序列
- *
+ * medium
  */
 
 /*

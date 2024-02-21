@@ -1,7 +1,9 @@
 /**
  * https://leetcode.cn/problems/maximum-product-subarray
  * 乘极最大的子数组
+ * medium
  *
+ * 思路：存 min、max，因为存在负数。
  */
 
 var maxProduct = function(A) {
