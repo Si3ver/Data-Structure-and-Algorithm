@@ -1,55 +1,52 @@
 // 数组中的第K个最大元素
 // 解法1： 冒泡k次， O(nk)
 // 冒泡 k 次 O(nk)
-var findKthLargest1 = function(nums, k) {
-  if (nums.length < k) return;
-  for (let i = nums.length - 1; i >= nums.length - k - 1; --i) {
+var findKthLargest1 = function(arr, k) {
+  const n = arr.length;
+  for (let i = n - 1; i > n - 1 - k; --i) {
     for (let j = 0; j < i; ++j) {
-      if (nums[j] > nums[j + 1]) {
-        const temp = nums[j];
-        nums[j] = nums[j + 1];
-        nums[j + 1] = temp;
+      if (arr[j] > arr[j + 1]) {
+        const tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
       }
     }
+    // console.log(arr)
   }
-  return nums[nums.length - k];
+  return arr[n - k];
 };
 
-// 解法2： partition法。 O(nlogn)
+// 解法2： partition法。 O(nlogk)
 // 每次while子循环找到第len - pivotIdx大的数。
-var findKthLargest2 = function(nums, k) {
-  if (nums.length < k) return;
-  if (nums.length === 1 && k === 1) return nums[0];
-
+var findKthLargest2 = function(arr, k) {
   const partition = (lo, hi) => {
-    const mid = lo + ((hi - lo) >> 1); // 选中间, 避免重复元素过多时，退化为 O(n^2)
-    // 交换 lo <-> mid
-    const pivot = nums[mid];
-    nums[mid] = nums[lo];
-    nums[lo] = pivot;
-
+    const mid = lo + ((hi - lo) >> 1);
+    const pivot = arr[mid];
+    arr[mid] = arr[lo];
+    arr[lo] = pivot;
     while (lo < hi) {
-      while (lo < hi && nums[hi] >= pivot) --hi;
-      if (lo < hi) nums[lo] = nums[hi];
-      while (lo < hi && nums[lo] <= pivot) ++lo;
-      if (lo < hi) nums[hi] = nums[lo];
+      while (lo < hi && arr[hi] >= pivot) --hi;
+      if (lo < hi) arr[lo] = arr[hi];
+      while (lo < hi && arr[lo] <= pivot) ++lo;
+      if (lo < hi) arr[hi] = arr[lo];
     }
-    nums[lo] = pivot;
+    arr[lo] = pivot;
     return lo;
   }
 
-  let lo = 0, hi = nums.length - 1;
+  const n = arr.length;
+  let lo = 0, hi = n - 1;
   while (lo < hi) {
-    const pivotIdx = partition(lo, hi);
-    if (pivotIdx === nums.length - k) {
-      return nums[pivotIdx];
-    } else if (pivotIdx > nums.length - k) {
-      hi = pivotIdx - 1;
+    const pivotIndex = partition(lo, hi);
+    if (pivotIndex === n - k) {
+      return arr[pivotIndex];
+    } else if (pivotIndex > n - k) {
+      hi = pivotIndex - 1;
     } else {
-      lo = pivotIdx + 1;
+      lo = pivotIndex + 1;
     }
   }
-  return nums[lo];
+  return arr[lo];
 }
 
 // 解法3： 利用堆（heap）。
