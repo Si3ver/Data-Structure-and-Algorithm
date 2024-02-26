@@ -23,8 +23,8 @@ function isPrime(num) {
 
   // 不需要检查比输入数字的开方还要大的数字
   // 2是唯一的既是偶数又是质数的数字。没有必要用一个循环来验证4,6,8。
-  var squareRoot = Math.sqrt(num);
-  for(var i = 3; i <= squareRoot; i += 2) {
+  // var squareRoot = Math.sqrt(num);
+  for(var i = 3; i * i < num; i += 2) {
     if (num % i === 0) {
       return false;
     }
