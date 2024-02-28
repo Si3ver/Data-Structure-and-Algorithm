@@ -20,7 +20,7 @@ var longestPalindrome = function(s) {
   };
 
   let start = 0, end = 0;
-  for (let i = 0; i < n; ++i) {
+  for (let i = 0; i < n - 1; ++i) { // last char no need check
     const lenOdd = expand(i);
     const lenEven = expand(i, i + 1);
     const len = Math.max(lenOdd, lenEven);
