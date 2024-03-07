@@ -5,7 +5,7 @@
 
   type MyOmit1<T, K extends keyof T> = MyPick<T, Exclude<keyof T, K>>;
 
-
+  // extends 用于声明条件类型
   type MyExclude<T, U> = T extends U ? never : T;
   type MyOmit2<T, K extends keyof any> = MyPick<T, MyExclude<keyof T, K>>;
 
@@ -19,4 +19,6 @@
   type UserPick = MyPick<User, 'name' | 'age'>;
   type UserOmit1 = MyOmit1<User, 'id'>;
   type UserOmit2 = MyOmit2<User, 'id'>;
+
+  type KeysLeft = MyExclude<'name' | 'age' | 'id', 'id'>;
 }
