@@ -1,6 +1,6 @@
 // 关键点：extends 和 infer 的使用
 {
-  type MyReturnType<T> = T extends (...args: any) => infer K ? K : never;
+  type MyReturnType<F> = F extends (...args: any) => infer R ? R : never;
 
   // ---- test
   type Foo1 = () => { a: string };
