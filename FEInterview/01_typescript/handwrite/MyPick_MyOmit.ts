@@ -24,3 +24,23 @@
 
   type KeysLeft = MyExclude<'name' | 'age' | 'id', 'id'>;
 }
+
+{
+  type MyPick<T, P extends keyof T> = {
+    [Key in P]: T[Key];
+  }
+
+  type MyExclude<T, U> = T extends U ? never : T;
+  type MyOmit<T, P extends keyof T> = MyPick<T, MyExclude<keyof T, P>>;
+
+  // test
+  type User = {
+    name: string;
+    age: number;
+    id: string;
+  }
+  type res1 = MyPick<User, 'name' | 'age'>;
+  type o2 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>;
+  type res2 = MyExclude<'a' | 'b' | 'c', 'a' | 'b'>;
+  type res3 = MyOmit<User, 'name' | 'age'>;
+}
