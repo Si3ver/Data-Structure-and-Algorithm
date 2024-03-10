@@ -5,11 +5,11 @@
   // type IsEqual<A, B> = (A extends B ? true : false) & (B extends A ? true : false);
 
   // ! 这样写才是对的
-  type IsEqual<A, B> = (<T>() => T extends A ? 1 : 2) extends <
-    T
-  >() => T extends B ? 1 : 2
-    ? true
-    : false;
+  type IsEqual<A, B> =
+    (<T>() => T extends A ? 1 : 2) extends
+    (<T>() => T extends B ? 1 : 2)
+      ? true
+      : false;
 
   {
     // test IsEqual
@@ -26,6 +26,8 @@
 
     type x1 = IsEqual<1, number>;
     type x2 = IsEqual<number, 1>;
+
+    type res = IsEqual<{name: string, age: number}, {name: string} & {age: number}>;
   }
 
   // ------------------------------ 1. Promise ------------------------------
