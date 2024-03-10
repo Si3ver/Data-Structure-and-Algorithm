@@ -74,10 +74,17 @@
 
 // ------------------------------ 3. 函数 ------------------------------
 {
+  type AppendArgument<Func extends Function, Arg> =
+    Func extends (...args: infer Args) => infer ReturnType
+      ? (...args: [...Args, Arg]) => ReturnType
+      : never;
 
+  // test
+  type res = AppendArgument<(name: string) => boolean, number>;
 }
 
 // ------------------------------ 4. 索引类型 ------------------------------
+// trick: 对
 {
   // 通用写法（公式） -- as
   type Mapping<Obj extends object> = {
@@ -105,4 +112,83 @@
     age: number;
   };
   type res1 = UppercaseKey<User>;
+}
+
+{
+  type ToReadonly<T extends Record<string, any>> = {
+    readonly [Key in keyof T]: T[Key];
+  }
+
+  // test
+  type User = {
+    id: string;
+    name: string;
+    age: number;
+  };
+  type res1 = ToReadonly<User>;
+}
+
+{
+  type ToPartial<T extends Record<string, any>> = {
+    [Key in keyof T]?: T[Key];
+  }
+
+  // test
+  type User = {
+    id: string;
+    name: string;
+    age: number;
+  };
+  type res1 = ToPartial<User>;
+}
+
+{
+  // 去掉 readonly 修饰 --- -
+  type ToMutable<T> = {
+    -readonly [Key in keyof T]: T[Key];
+  }
+
+  // test
+  type User = {
+    readonly id: string;
+    name: string;
+    age: number;
+  };
+  type res1 = ToMutable<User>;
+}
+
+{
+  // 去掉 ? 修饰 --- -?
+  type ToRequired<T> = {
+    [Key in keyof T]-?: T[Key];
+  }
+
+  // test
+  type User = {
+    id: string;
+    name?: string;
+    age?: number;
+  };
+  type res1 = ToRequired<User>;
+}
+
+{
+  type FilterByValueType<
+    Obj extends Record<string, any>,
+    ValueType,
+  > = {
+    [
+      Key in keyof Obj
+      as Obj[Key] extends ValueType ? Key : never
+    ]: Obj[Key];
+  }
+
+  // test
+  type User = {
+    id: string;
+    name: string;
+    age: number;
+    hobby: string[];
+  };
+  type res1 = FilterByValueType<User, string | number>;
 }
