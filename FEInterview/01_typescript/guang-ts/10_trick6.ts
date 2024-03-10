@@ -135,3 +135,163 @@
     age: 18,
   }>
 }
+
+// ------------------------------ GetOptional ------------------------------
+{
+  // 测试用
+  type User = {
+    name: string;
+    age?: number;
+    readonly id: string | undefined;
+  };
+
+  {
+    // 按属性过滤，只保留 option 类型的
+    type GetOptional<Obj extends Record<string, any>> = {
+      [
+        Key in keyof Obj
+          as {} extends Pick<Obj, Key>
+            ? Key
+            : never
+      ]: Obj[Key];
+    }
+
+    // test
+    type res1 = GetOptional<User>;
+  }
+
+  {
+    // 拆开写
+    type IsOptional<Key extends keyof Obj, Obj> =
+      {} extends Pick<Obj, Key> ? Key : never;
+
+    type GetOptional<Obj extends Record<string, any>> = {
+      [
+        Key in keyof Obj
+          as IsOptional<Key, Obj>
+      ]: Obj[Key];
+    }
+
+    // test
+    type res1 = GetOptional<User>;
+  }
+}
+
+{
+  // ! 原理：
+  // 空对象可以作为可选类型的子类型
+  type res1 = {} extends { age?: number } ? true : false; // true
+  // 不能作为必选属性的子类型
+  type res2 = {} extends { age: number } ? true : false; // false
+}
+
+// ------------------------------ GetRequired ------------------------------
+{
+  type IsRequired<Key extends keyof Obj, Obj> =
+    {} extends Pick<Obj, Key> ? never : Key;
+
+  type GetRequired<Obj extends Record<string, any>> = {
+    [Key in keyof Obj as IsRequired<Key, Obj>]: Obj[Key]
+  }
+
+  // test
+  type User = {
+    name: string;
+    age?: number;
+    id: string | undefined;
+  };
+  type res1 = GetRequired<User>;
+}
+
+// ------------------------------ Remove Index Signature ------------------------------
+{
+  type RemoveIndexSignature<Obj extends Record<string, any>> = {
+    [
+      Key in keyof Obj
+        as Key extends `${infer Str}` ? Str : never
+    ]: Obj[Key];
+  }
+
+  // test
+  type User = {
+    [key: string]: any; // 索引签名，Key 不能构造为字符串
+    sleep(): void;
+  }
+  type res1 = RemoveIndexSignature<User>;
+  type res2 = RemoveIndexSignature<{
+    name: string;
+    age: number;
+  }>;
+}
+
+// ------------------------------ get Public Props ------------------------------
+{
+  class Will {
+    public name: string;
+    // public name2: string;
+    protected age: number;
+    private hobbies: string[];
+
+    constructor() {
+      this.name = 'will';
+      this.age = 18;
+      this.hobbies = ['codding', 'play games'];
+    }
+  }
+
+  {
+    type Res = keyof Will;
+    let res: Res = 'name';
+    // res = 'name2';
+  }
+
+  {
+    type ClassPublicProps<Obj extends Record<string, any>> = {
+      [Key in keyof Obj]: Obj[Key];
+    }
+    // test
+    type Res = ClassPublicProps<Will>;
+  }
+}
+
+// ------------------------------ as Const ------------------------------
+{
+  {
+    const obj = {
+      a: 1,
+      b: 2,
+    };
+    type Res1 = typeof obj;
+  }
+
+  {
+    const obj = {
+      a: 1,
+      b: 2,
+    } as const;
+    type Res1 = typeof obj;
+  }
+
+  {
+    const arr = [1, '2', 3];
+    type Res1 = typeof arr;
+  }
+
+  {
+    const arr = [1, '2', 3] as const;
+    type Res1 = typeof arr;
+  }
+
+  {
+    // 带上 readonly, 最后一个 case 才不会为 never
+    type ReverseArr<Arr> = Arr extends readonly [infer A, infer B, infer C] ? [C, B, A] : never;
+
+    // test
+    type Res1 = ReverseArr<[1, 2, 3]>;
+    type Res2 = ReverseArr<[string, number, boolean]>;
+
+    const arr = [1, '2', 3] as const;
+    type arrType = typeof arr; // 带了 readonly
+    type Res3 = ReverseArr<arrType>; //
+  }
+}
