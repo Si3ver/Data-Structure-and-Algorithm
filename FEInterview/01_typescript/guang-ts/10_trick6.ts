@@ -110,7 +110,7 @@
   let a: string;
   a = '123'; // 协变
 
-  function sayHello(name: string) {
+  const sayHello = (name: string) => {
     return `Hello, ${name}`;
   }
   sayHello('william');
