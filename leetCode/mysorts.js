@@ -41,7 +41,11 @@ let insertSort = (arr) => {
 }
 // 原址快排 不稳定
 let partition = (arr, left, right) => {
-    let pivot = arr[left]
+    // let pivot = arr[left]
+    const mid = left + ((right - left) >> 1);
+    let pivot = arr[mid];
+    arr[mid] = arr[left];
+
     while (left < right) {
         while (left < right && arr[right] >= pivot) --right
         if (left < right) arr[left] = arr[right]
@@ -75,8 +79,8 @@ let quickSort_iter = (arr, left, right) => {
     return arr
 }
 // --- test ---
-console.log(bubbleSort([5, 3, 9, 1, 8, 34, 12]))
-console.log(selectSort([5, 3, 9, 1, 8, 34, 12]))
-console.log(insertSort([5, 3, 9, 1, 8, 34, 12]))
+// console.log(bubbleSort([5, 3, 9, 1, 8, 34, 12]))
+// console.log(selectSort([5, 3, 9, 1, 8, 34, 12]))
+// console.log(insertSort([5, 3, 9, 1, 8, 34, 12]))
 console.log(quickSort_recu([5, 3, 9, 1, 8, 34, 12], 0, [5, 3, 9, 1, 8, 34, 12].length-1))
-console.log(quickSort_iter([5, 3, 9, 1, 8, 34, 12], 0, [5, 3, 9, 1, 8, 34, 12].length-1))
+// console.log(quickSort_iter([5, 3, 9, 1, 8, 34, 12], 0, [5, 3, 9, 1, 8, 34, 12].length-1))
