@@ -74,7 +74,7 @@
 }
 
 {
-  // insertion type
+  // intersection type
   type T1 = string & number;
   type T2 = {
     name: string;
@@ -149,4 +149,28 @@
 
   let obj = new MyClass();
   obj.myMethod();
+}
+
+{
+  // 协变  子类型 -> 超类型
+  let subtypes: string[] = ['hello', 'world'];
+  let supertype: Object[] = subtypes;
+
+  // 逆变 超类型 -> 子类型 (函数参数是逆变的)
+  type Logger<T> = (arg: T) => void;
+  let logNumber: Logger<number> = (x: number) => console.log(x);
+  let logAny: Logger<any> = logNumber;
+
+  //
+  interface Animal {
+    name: string;
+  }
+  interface Dog extends Animal {
+    breed: string;
+  }
+  let animal: Animal = {name: 'Animal'};
+  let dog: Dog = {name: 'dog', breed: 'labrador'};
+
+  animal = dog; // 协变
+  // dog = animal;
 }
