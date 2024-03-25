@@ -1,5 +1,5 @@
 import {describe, expect, test} from '@jest/globals';
-import {twoSum} from './01_twoSum';
+import {twoSum} from './0001_twoSum';
 
 describe('[easy] twoSum', () => {
   test('case 1', () => {
