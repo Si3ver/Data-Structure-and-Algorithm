@@ -1,4 +1,4 @@
-import { threeSum } from "./0015_threeSum";
+import { threeSum } from "../0015_threeSum";
 
 describe("module threeSum", () => {
   test("case 1", () => {

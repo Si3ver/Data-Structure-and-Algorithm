@@ -1,4 +1,4 @@
-import { maxArea } from "./0011_maxArea";
+import { maxArea } from "../0011_maxArea";
 
 describe('module maxArea', () => {
   test('case 1', () => {

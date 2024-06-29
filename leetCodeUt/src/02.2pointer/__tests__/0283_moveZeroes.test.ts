@@ -1,4 +1,4 @@
-import { moveZeroes } from "./0283_moveZeroes";
+import { moveZeroes } from "../0283_moveZeroes";
 
 describe('module moveZeroes', () => {
   test('case 1', () => {
