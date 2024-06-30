@@ -6,15 +6,14 @@
 
 export function lengthOfLongestSubstring(s: string): number {
   const map = new Map<string, number>();
-  let maxLen = 0;
-  let left = 0;
+  let maxLen = 0, start = 0;
   for (let i = 0; i < s.length; i++) {
     const char = s[i];
-    if (map.has(char)) {
-      left = Math.max(left, map.get(char)! + 1);
+    if (map.has(char)) { // 出现过 -> 更新 start
+      start = Math.max(start, map.get(char)! + 1); // 不允许有重复，故应取最右
     }
     map.set(char, i);
-    maxLen = Math.max(maxLen, i - left + 1);
+    maxLen = Math.max(maxLen, i - start + 1);
   }
   return maxLen;
 }
