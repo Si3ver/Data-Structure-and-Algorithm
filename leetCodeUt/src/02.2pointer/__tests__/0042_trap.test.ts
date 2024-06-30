@@ -33,5 +33,6 @@ describe('trap function', () => {
   test('should handle edge cases', () => {
     expect(trap([0, 0, 0, 2, 0, 0])).toBe(0);
     expect(trap([2, 0, 0, 2, 0])).toBe(4);
+    expect(trap([5,5,1,7,1,1,5,2,7,6])).toBe(23)
   });
 });

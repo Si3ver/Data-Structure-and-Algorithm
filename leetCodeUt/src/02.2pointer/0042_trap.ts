@@ -8,7 +8,7 @@ export function trap(height: number[]): number {
   let maxRight = height[right];
   let ans = 0;
   while (left < right) {
-    if (height[left] <= height[right]) {
+    if (height[left] <= height[right]) { // 双指针，始终矮的一侧往里靠
       maxLeft = Math.max(maxLeft, height[left]);
       ans += maxLeft - height[left];
       ++left;
