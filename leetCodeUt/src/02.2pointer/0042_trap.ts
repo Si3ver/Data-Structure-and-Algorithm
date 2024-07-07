@@ -1,22 +1,16 @@
-
 export function trap(height: number[]): number {
   const n = height.length;
   if (n < 3) return 0;
-  let left = 0;
-  let right = n - 1;
-  let maxLeft = height[left];
-  let maxRight = height[right];
-  let ans = 0;
+
+  let left = 0, right = n - 1, maxL = 0, maxR = 0, res = 0;
   while (left < right) {
-    if (height[left] <= height[right]) { // 双指针，始终矮的一侧往里靠
-      maxLeft = Math.max(maxLeft, height[left]);
-      ans += maxLeft - height[left];
-      ++left;
+    if (height[left] <= height[right]) {
+      maxL = Math.max(maxL, height[left]);
+      res += maxL - height[left++]
     } else {
-      maxRight = Math.max(maxRight, height[right]);
-      ans += maxRight - height[right];
-      --right;
+      maxR = Math.max(maxR, height[right]);
+      res += maxR - height[right--];
     }
   }
-  return ans;
-}
+  return res;
+};
