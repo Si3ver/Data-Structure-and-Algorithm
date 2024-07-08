@@ -1,4 +1,4 @@
-import { groupAnagrams } from "./0049_groupAnagrams";
+import { groupAnagrams } from "../0049_groupAnagrams";
 
 describe('module groupAnagrams', () => {
   test('case 1', () => {

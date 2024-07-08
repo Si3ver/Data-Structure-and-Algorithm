@@ -1,17 +1,16 @@
-function groupAnagrams(strs: string[]): string[][] {
-  const map = new Map<string, string[]>(), startCodePoint: number = 'a'.codePointAt(0)!;
-  strs.forEach((str) => {
-    const keyArr: number[] = new Array(26).fill(0);
-    for (const ch of str) {
-      const index = ch.codePointAt(0)! - startCodePoint;
-      ++keyArr[index]
+// 思路: 存入一个map, key为字符串的字母频次, value为数组
+export function groupAnagrams(strs: string[]): string[][] {
+  const map = new Map<string, string[]>(), startCp: number = 'a'.codePointAt(0)!;
+  strs.forEach(str => {
+    const keyArr = Array(26).fill(0);
+    for (let i = 0; i < str.length; ++i) {
+      ++keyArr[str.codePointAt(i)! - startCp];
     }
-    if (!map.has(keyArr.join())) {
-      map.set(keyArr.join(), []);
+    const keyStr = keyArr.join(',');
+    if (!map.has(keyStr)) {
+      map.set(keyStr, []);
     }
-    map.get(keyArr.join())!.push(str);
+    map.get(keyStr)!.push(str);
   })
   return Array.from(map.values());
 };
-
-export {groupAnagrams}

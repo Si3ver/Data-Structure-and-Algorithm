@@ -1,4 +1,4 @@
-function twoSum(arr: number[], target: number): number[] {
+export function twoSum(arr: number[], target: number): number[] {
   const m = new Map(), n = arr.length;
   for (let i = 0; i < n; ++i) {
     if (m.has(arr[i])) {
@@ -9,5 +9,3 @@ function twoSum(arr: number[], target: number): number[] {
   }
   return [];
 };
-
-export { twoSum }
