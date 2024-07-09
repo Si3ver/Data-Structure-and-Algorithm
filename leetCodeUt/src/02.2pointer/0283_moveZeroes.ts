@@ -5,17 +5,14 @@
  * 思路：左指针指向非零元素
  */
 
-function moveZeroes(arr: number[]): void {
+export function moveZeroes(nums: number[]): void {
   let left = 0;
-  for (let i = 0; i < arr.length; ++i) {
-    if (arr[i] !== 0) {
-      arr[left++] = arr[i]
+  for (let i = 0; i < nums.length; ++i) {
+    if (nums[i] !== 0) {
+      nums[left++] = nums[i];
     }
   }
-  while (left < arr.length) {
-    arr[left++] = 0;
+  while (left < nums.length) {
+    nums[left++] = 0;
   }
 };
-
-
-export {moveZeroes};
