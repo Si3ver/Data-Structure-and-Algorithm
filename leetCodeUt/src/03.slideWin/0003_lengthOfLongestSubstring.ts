@@ -4,16 +4,16 @@
 // 3. 返回 maxLen
 // 4. 复杂度分析：时间 O(n) 空间 O(n)
 
+// -> 01.map
 export function lengthOfLongestSubstring(s: string): number {
   const map = new Map<string, number>();
-  let maxLen = 0, start = 0;
-  for (let i = 0; i < s.length; i++) {
-    const char = s[i];
-    if (map.has(char)) { // 出现过 -> 更新 start
-      start = Math.max(start, map.get(char)! + 1); // 不允许有重复，故应取最右
+  let maxLen = 0;
+  for (let i = 0, start = 0; i < s.length; ++i) {
+    if (map.has(s[i])) {
+      start = Math.max(start, map.get(s[i])! + 1);
     }
-    map.set(char, i);
+    map.set(s[i], i);
     maxLen = Math.max(maxLen, i - start + 1);
   }
   return maxLen;
-}
+};
