@@ -4,7 +4,9 @@
 //  时间 O(m + n)
 //  空间 O(n)
 
-export function findAnagrams(s: string, p: string): number[] {
+
+// 方案一：双 map，先计算 needMap，并持续维护 winMap、start、count
+export function findAnagrams1(s: string, p: string): number[] {
   const m = s.length, n = p.length;
   if (m < n) return [];
 
@@ -38,6 +40,31 @@ export function findAnagrams(s: string, p: string): number[] {
       winMap.set(s[start], (winMap.get(s[start]) || 0) - 1);
       ++start;
     }
+  }
+  return res;
+};
+
+// 方案二：单 map 方法
+// Step1: 欠债，统计 p 中字符
+// Step2: 初始化，右指针先走 p.length 次
+// Step3: 双指针同时走，更新账本
+
+export function findAnagrams(s: string, p: string): number[] {
+  if (s.length < p.length) return [];
+  const map = new Map<string,number>(), res: number[] = [];
+  for(const ch of p) {
+    map.set(ch, (map.get(ch) || 0) - 1); // record owe sum
+  }
+  let l = 0, r = 0;
+  for (; r < p.length; ++r) {
+    map.set(s[r], (map.get(s[r]) || 0) + 1);
+  }
+  for (; r <= s.length; ++l, ++r) {
+    if ([...map.values()].every(v => v === 0)) {
+      res.push(l);
+    }
+    map.set(s[l], (map.get(s[l]) || 0) - 1);
+    map.set(s[r], (map.get(s[r]) || 0) + 1);
   }
   return res;
 };

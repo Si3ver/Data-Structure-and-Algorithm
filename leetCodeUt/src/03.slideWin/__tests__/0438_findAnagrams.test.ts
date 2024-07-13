@@ -19,4 +19,11 @@ describe('findAnagrams function', () => {
     const result = findAnagrams(s, p);
     expect(result).toEqual([0, 1, 2]);
   });
+
+  test('case 37', () => {
+    const s = 'baa';
+    const p = 'aa';
+    const result = findAnagrams(s, p);
+    expect(result).toEqual([1]);
+  });
 });
