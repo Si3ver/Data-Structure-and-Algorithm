@@ -44,27 +44,28 @@ export function findAnagrams1(s: string, p: string): number[] {
   return res;
 };
 
-// 方案二：单 map 方法
-// Step1: 欠债，统计 p 中字符
-// Step2: 初始化，右指针先走 p.length 次
-// Step3: 双指针同时走，更新账本
+// 方案二：单 map 法（账本清零法）
+// Step1: 欠债，遍历p, 统计所有债务
+// Step2: 右指针先走 p.length 步，更新账本
+// Step3: 双指针同步走，更新账本
 
 export function findAnagrams(s: string, p: string): number[] {
   if (s.length < p.length) return [];
-  const map = new Map<string,number>(), res: number[] = [];
-  for(const ch of p) {
-    map.set(ch, (map.get(ch) || 0) - 1); // record owe sum
+  const depts = new Map<string, number>();
+  for (const ch of p) {
+    depts.set(ch, (depts.get(ch) || 0) - 1);
   }
-  let l = 0, r = 0;
+  let r = 0;
   for (; r < p.length; ++r) {
-    map.set(s[r], (map.get(s[r]) || 0) + 1);
+    depts.set(s[r], (depts.get(s[r]) || 0) + 1);
   }
-  for (; r <= s.length; ++l, ++r) {
-    if ([...map.values()].every(v => v === 0)) {
+  const res: number[] = [];
+  for (let l = 0; r <= s.length; ++l, ++r) {
+    if (([...depts.values()].every(v => v === 0))) {
       res.push(l);
     }
-    map.set(s[l], (map.get(s[l]) || 0) - 1);
-    map.set(s[r], (map.get(s[r]) || 0) + 1);
+    depts.set(s[l], (depts.get(s[l]) || 0) - 1);
+    depts.set(s[r], (depts.get(s[r]) || 0) + 1);
   }
   return res;
 };
