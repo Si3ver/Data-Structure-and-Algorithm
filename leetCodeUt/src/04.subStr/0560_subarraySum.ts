@@ -10,9 +10,6 @@ export function subarraySum(nums: number[], k: number): number {
       count += map.get(sum - k)!;
     }
     map.set(sum, (map.get(sum) || 0) + 1);
-    if (nums.length === 9) {
-      console.log(i,  nums[i],  sum, sum - k, count, map);
-    }
   }
   return count;
 };
